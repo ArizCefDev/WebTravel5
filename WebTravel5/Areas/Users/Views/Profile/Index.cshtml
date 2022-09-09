@@ -1,0 +1,41 @@
+﻿@model WebTravel5.Areas.Users.Models.UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Users/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Profilini Güncəllə</h1>
+<form method="post" enctype="multipart/form-data">
+
+    <label>Adınız</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <br />
+
+    <label>Soyadınız</label>
+    <input type="text" asp-for="Surname" class="form-control" />
+    <br />
+
+    <label>Gmailiniz</label>
+    <input type="email" asp-for="Mail" class="form-control" />
+    <br />
+
+    <label>Şifrəniz</label>
+    <input type="password" asp-for="Password" class="form-control" />
+    <br />
+
+    <label>Təkrar Şifrəniz</label>
+    <input type="password" asp-for="ConfirmPassword" class="form-control" />
+    <br />
+
+    <label>Telefonunuz</label>
+    <input type="text" asp-for="Phone" class="form-control" />
+    <br />
+
+    <div class="form-group">
+        <label>Rəsim seçin</label>
+        <input type="file" asp-for="Image"/>
+    </div>
+    <br />
+    <button class="btn btn-primary">Güncəllə</button>
+</form>
+

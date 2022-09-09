@@ -1,0 +1,44 @@
+﻿@model WebTravel5.Models.UserSignInViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebTravel5.com </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Login-Register/fonts/linearicons/style.css">
+    <link rel="stylesheet" href="~/Login-Register/css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="inner">
+            <img src="~/Login-Register/images/image-1.png" alt="" class="image-1">
+            <form method="post">
+                <h3>Hesabına daxil ol</h3>
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" asp-for="UserName" class="form-control" placeholder="İstifadəçi adınızı daxil edin">
+                    <span asp-validation-for="UserName" class="errormesage"></span>
+                </div>
+                <div class="form-holder">
+                    <span class="lnr lnr-lock"></span>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Şifrənizi daxil edin">
+                    <span asp-validation-for="Password" class="errormesage"></span>
+                </div>
+                <button>
+                    <span>Daxil ol</span>
+                </button>
+            </form>
+            <img src="~/Login-Register/images/image-2.png" alt="" class="image-2">
+        </div>
+
+    </div>
+
+    <script src="~/Login-Register/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Login-Register/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

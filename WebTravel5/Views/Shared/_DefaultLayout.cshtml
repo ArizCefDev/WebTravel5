@@ -1,0 +1,111 @@
+﻿@{
+    Layout = null;
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WebTravel5.com </title>
+    <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="~/Travel-Templates/assets/css/style-liberty.css">
+</head>
+
+<body>
+    <!--header and Sliders-->
+    @await Html.PartialAsync("/Views/LayoutPartials/HeaderPartial.cshtml")
+    @await Html.PartialAsync("/Views/LayoutPartials/BannerPartial.cshtml")
+
+
+    @RenderBody()
+
+    <!--/Footer-->
+    @await Html.PartialAsync("/Views/LayoutPartials/FooterPartial.cshtml")
+
+    <!-- Template JavaScript -->
+    <script src="~/Travel-Templates/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Travel-Templates/assets/js/theme-change.js"></script>
+    <!--/slider-js-->
+    <script src="~/Travel-Templates/assets/js/jquery.min.js"></script>
+    <script src="~/Travel-Templates/assets/js/modernizr-2.6.2.min.js"></script>
+    <script src="~/Travel-Templates/assets/js/jquery.zoomslider.min.js"></script>
+    <!--//slider-js-->
+    <script src="~/Travel-Templates/assets/js/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo1").owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    736: {
+                        items: 1,
+                        nav: false
+                    },
+                    1000: {
+                        items: 1,
+                        nav: false,
+                        loop: true
+                    }
+                }
+            })
+        })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- stats number counter-->
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+    </script>
+    <!-- //stats number counter -->
+    <!--/MENU-JS-->
+    <script>
+        $(window).on("scroll", function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function() {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function() {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+    </script>
+    <!--//MENU-JS-->
+
+    <script src="~/Travel-Templates/assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+

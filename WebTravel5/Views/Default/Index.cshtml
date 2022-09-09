@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<!--/Popular Destinations-->
+@await Component.InvokeAsync("PopularDestinations")
+
+<!-- statistic -->
+@await Component.InvokeAsync("Statistics")
+
+<!--Features-->
+@await Component.InvokeAsync("Feature")
+
+<!--/SubAbout-->
+@await Component.InvokeAsync("SubAbout")
+
+<!-- testimonials -->
+@await Component.InvokeAsync("Testimonial")
+

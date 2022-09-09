@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.Reservation
+@{
+    ViewData["Title"] = "NewReservation";
+    Layout = "~/Areas/Users/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Yeni Rezervasiya Səyfəsi</h1>
+<form method="post" enctype="multipart/form-data">
+
+    <label>Məkan</label>
+    @Html.DropDownListFor(x=>x.DestinationID,(List<SelectListItem>) ViewBag.v1,new {@class="form-control"})
+    <br />
+
+    <label>Nəfər sayı</label>
+    <input type="text" asp-for="PersonCount" class="form-control" />
+    <br />
+
+    <label>Tarix</label>
+    <input type="date" asp-for="Date" class="form-control" />
+    <br />
+
+    <label>Açıqlama</label>
+    <textarea type="text" asp-for="Description" class="form-control"></textarea>
+    <br />
+    <button class="btn btn-primary">Revervasiya et</button>
+</form>
