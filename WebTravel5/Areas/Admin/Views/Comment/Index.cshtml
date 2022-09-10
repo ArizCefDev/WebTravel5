@@ -1,10 +1,8 @@
-﻿@model IEnumerable<EntityLayer.Concrete.Destination>
+﻿@model IEnumerable<EntityLayer.Concrete.Comment>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    int count = 0;
 }
-
 
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
      id="layout-navbar">
@@ -51,20 +49,16 @@
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin Panel /</span> Cədvəllər</h4>
         <!-- Striped Rows -->
         <div class="card">
-            <h5 class="card-header">Səyahət Yerləri Cədvəli</h5>
+            <h5 class="card-header">Yorumlar Cədvəli</h5>
             <div class="table-responsive text-nowrap">
-                <a href="/Admin/Destination/DestinationAdd/" class="btn btn-primary">Yeni</a>
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Şəkil</th>
-                            <th>Şəhər</th>
-                            <th>Gün</th>
-                            <th>Nəfər</th>
-                            <th>Qiymət</th>
+                            <th>Yazan</th>
+                            <th>Tarix</th>
+                            <th>Səyahət yeri</th>
                             <th>Sil</th>
-                            <th>Güncəllə</th>
                             <th>Ətraflı</th>
                         </tr>
                     </thead>
@@ -72,37 +66,21 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                @{
-                                    count =+ 1;
-                                }
-                                <td>@count</td>
-                                <td>
-                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                        <li data-bs-toggle="tooltip"
-                                        data-popup="tooltip-custom"
-                                        data-bs-placement="top"
-                                        class="avatar avatar-xs pull-up"
-                                        title="Lilian Fuller">
-                                            <img src="@item.Image" alt="Avatar" class="rounded-circle" />
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>@item.City</td>
-                                <td>@item.DayNight</td>
-                                <td>@item.Capacity</td>
-                                <td>@item.Price</td>
-                                <td><a href="/Admin/Destination/DestinationDelete/@item.ID/" class="btn btn-danger">Sil</a></td>
-                                <td><a href="/Admin/Destination/DestinationUpdate/@item.ID/" class="btn btn-success">Güncəllə</a></td>
-                                <td><a href="/Admin/Destination/DestinationDetails/@item.ID/" class="btn btn-info">Ətraflı</a></td>
+                                <td>@item.ID</td>
+                                <td>@item.CommentUser</td>
+                                <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                                <td>@item.Destination.City</td>
+                                <td><a href="/Admin/Comment/CommentDelete/@item.ID/" class="btn btn-danger">Sil</a></td>
+                                <td><a href="/Admin/Comment/CommentDetails/@item.ID/" class="btn btn-info">Ətraflı</a></td>
                             </tr>
                         }
                     </tbody>
                 </table>
             </div>
-            <a href="/Admin/Destination/DestinationAdd/" class="btn btn-primary">Yeni</a>
         </div>
         <!--/ Striped Rows -->
         <div class="content-backdrop fade"></div>
     </div>
 </div>
 <!-- Content wrapper -->
+

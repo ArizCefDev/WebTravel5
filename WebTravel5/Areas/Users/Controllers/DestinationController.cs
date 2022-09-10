@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +11,16 @@ namespace WebTravel5.Areas.Users.Controllers
     [Route("Users/[controller]/[action]")]
     public class DestinationController : Controller
     {
-        DestinationService ds = new DestinationService(new EfDestinationRepository());
+        private readonly IDestinationService _destinationService;
+
+        public DestinationController(IDestinationService destinationService)
+        {
+            _destinationService = destinationService;
+        }
 
         public IActionResult Index()
         {
-            var values = ds.TGetList();
+            var values = _destinationService.TGetList();
             return View(values);
         }
     }

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IDestinationService : IGenericService<Destination>
+    public interface IUserService : IGenericService<AppUser>
     {
-        public List<Destination> SearchDestination(string s);
     }
 }

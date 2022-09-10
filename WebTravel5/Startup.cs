@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Container;
+using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -41,6 +42,9 @@ namespace WebTravel5
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
             services.AddMvc();
+
+            //Services
+            services.ServicesDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

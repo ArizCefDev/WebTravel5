@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -7,20 +8,23 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebTravel5.Areas.Admin.Controllers
 {
 
-    //dashboard //yorum //rota //misafir //mesaj //rehber //one cikanlar
     [Area("Admin")]
-    [AllowAnonymous]
     public class DestinationController : Controller
     {
-        DestinationService ds = new DestinationService(new EfDestinationRepository());
+        private readonly IDestinationService _destinationService;
+
+        public DestinationController(IDestinationService destinationService)
+        {
+            _destinationService = destinationService;
+        }
 
         [Route("Admin/[controller]/[action]")]
         public IActionResult Index(string s)
         {
-            var values = ds.TGetList();
+            var values = _destinationService.TGetList();
             if (!string.IsNullOrEmpty(s))
             {
-                return View(ds.SearchDestination(s));
+                return View(_destinationService.SearchDestination(s));
             }
             return View(values);
         }
@@ -39,14 +43,14 @@ namespace WebTravel5.Areas.Admin.Controllers
             p.Details1 = "null";
             p.Details2 = "null";
             p.image2 = "null";
-            ds.TInsert(p);
+            _destinationService.TInsert(p);
             return RedirectToAction("Index","Destination");
         }
 
         [HttpGet]
         public IActionResult DestinationUpdate(int id)
         {
-            var values = ds.TGetById(id);
+            var values = _destinationService.TGetById(id);
             return View(values);
         }
 
@@ -58,21 +62,21 @@ namespace WebTravel5.Areas.Admin.Controllers
             p.Details1 = "null";
             p.Details2 = "null";
             p.image2 = "null";
-            ds.TUpdate(p);
+            _destinationService.TUpdate(p);
             return RedirectToAction("Index","Destination");
         }
 
         [HttpGet]
         public IActionResult DestinationDetails(int id)
         {
-            var values = ds.TGetById(id);
+            var values = _destinationService.TGetById(id);
             return View(values);
         }
 
         public IActionResult DestinationDelete(int id)
         {
-            var values = ds.TGetById(id);
-            ds.TDelete(values);
+            var values = _destinationService.TGetById(id);
+            _destinationService.TDelete(values);
             return RedirectToAction("Index","Destination");
         }
     }

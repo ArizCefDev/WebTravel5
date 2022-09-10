@@ -18,6 +18,16 @@ namespace BusinessLayer.Concrete
             _commentDal = commentDal;
         }
 
+        public List<Comment> CommentSearch(string s)
+        {
+            return _commentDal.GetListByFilter(x=>x.CommentUser.Contains(s));
+        }
+
+        public List<Comment> GetIncludeDestination()
+        {
+            return _commentDal.GetListWithDestination();
+        }
+
         public void TDelete(Comment t)
         {
             _commentDal.Delete(t);

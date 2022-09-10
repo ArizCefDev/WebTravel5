@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -10,7 +11,12 @@ namespace WebTravel5.Controllers
     [AllowAnonymous]
     public class CommentController : Controller
     {
-        CommentService cs = new CommentService(new EfCommentRepository());
+        private readonly ICommentService _commentService;
+
+        public CommentController(ICommentService commentService)
+        {
+            _commentService = commentService;
+        }
 
         [HttpGet]
         public PartialViewResult AddComment()
@@ -23,7 +29,7 @@ namespace WebTravel5.Controllers
         {
             p.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             p.Status = true;
-            cs.TInsert(p);
+            _commentService.TInsert(p);
             return RedirectToAction("Index", "Destination");
         }
     }
