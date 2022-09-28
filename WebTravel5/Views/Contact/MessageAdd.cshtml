@@ -1,0 +1,55 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewData["Title"] = "MessageAdd";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-2">
+            <h2 class="title">Bizimlə Əlaqə</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="/Default/Index/">Ana Səhifə</a></li>
+                <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Bizimlə Əlaqə </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<!-- contact-form -->
+<section class="w3l-contact" id="contact">
+    <div class="contact-infubd py-5">
+        <div class="container py-lg-3">
+            <div class="contact-grids row">
+                @await Component.InvokeAsync("ContactList")
+
+                <div class="col-lg-6 mt-lg-0 mt-5 contact-right">
+                    <form method="post" class="signin-form">
+                        <div class="input-grids">
+                            <div class="form-group">
+                                <input type="text" asp-for="Name" id="w3lName" placeholder="Adınızı daxil edin*" class="contact-input" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" asp-for="Mail" id="w3lSender" placeholder="G-mailinizi daxil edin*" class="contact-input" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" asp-for="Subject" id="w3lSubect" placeholder="Mövzunu daxil edin*" class="contact-input" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea asp-for="Text" placeholder="Mesajınızı daxil edin*"></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-style btn-primary">Mesajı göndər</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            @await Component.InvokeAsync("MapLocation")
+        </div>
+
+    </div>
+</section>
+<!-- /contact-form -->

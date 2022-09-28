@@ -27,6 +27,7 @@ namespace BusinessLayer.Container
             services.AddScoped<IReservationService, ReservationService>();
             services.AddScoped<ISubAboutService, SubAboutService>();
             services.AddScoped<ITestimonialService, TestimonialService>();
+            services.AddScoped<IMessageService, MessageService>();
 
             //EF
             services.AddScoped<IAboutDal, EfAboutRepository>();
@@ -40,6 +41,7 @@ namespace BusinessLayer.Container
             services.AddScoped<IReservationDal, EfReservationRepository>();
             services.AddScoped<ISubAboutDal, EfSubAboutRepository>();
             services.AddScoped<ITestimonialDal, EfTestimonialRepository>();
+            services.AddScoped<IMessageDal, EfMessageRepository>();
         }
     }
 }

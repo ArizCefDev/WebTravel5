@@ -1,0 +1,9 @@
+﻿@model List<EntityLayer.Concrete.Contact>
+<div class="map mt-5 pt-md-5">
+    <h5>Xəritə</h5>
+    @foreach (var item in Model)
+    {
+        <iframe src="@item.MapLocation"
+            style="border:0" allowfullscreen=""></iframe>
+    }
+</div>

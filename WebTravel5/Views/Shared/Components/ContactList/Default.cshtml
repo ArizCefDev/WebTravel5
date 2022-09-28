@@ -1,0 +1,27 @@
+﻿@model List<EntityLayer.Concrete.Contact>
+
+<div class="col-lg-6 contact-left">
+    <div class="partners">
+        @foreach (var item in Model)
+        {
+            <div class="cont-details">
+                <h5>Əlaqə vastələrimiz</h5>
+                <p class="mt-3 mb-4">
+                    @item.Description
+                </p>
+            </div>
+            <div class="hours">
+                <h6 class="mt-4">Email:</h6>
+                <p>
+                    <a href="@item.Mail">
+                        @item.Mail
+                    </a>
+                </p>
+                <h6 class="mt-4">Address:</h6>
+                <p> @item.Address</p>
+                <h6 class="mt-4">Tel:</h6>
+                <p class="margin-top"><a href="tel:@item.Phone">@item.Phone</a></p>
+            </div>
+        }
+    </div>
+</div>

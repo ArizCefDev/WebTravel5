@@ -14,7 +14,7 @@ namespace WebTravel5.Areas.Users.Controllers
         {
             _userManager = userManager;
         }
-
+        [Route("Users/[controller]/[action]")]
         public async Task<IActionResult> Index()
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);

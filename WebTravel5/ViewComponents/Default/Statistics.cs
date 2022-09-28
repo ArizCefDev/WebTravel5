@@ -12,7 +12,8 @@ namespace WebTravel5.ViewComponents.Default
             using var c = new Context();
             ViewBag.v1 = c.Destinations.Count();
             ViewBag.v2 = c.Guides.Count();
-            ViewBag.v3 = "781";
+            ViewBag.v3 = c.Testimonials.Count();
+            ViewBag.v4 = c.Comments.Count();
             return View();
         }
     }

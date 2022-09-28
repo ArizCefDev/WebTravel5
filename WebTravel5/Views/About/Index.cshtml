@@ -1,0 +1,81 @@
+﻿@model List<EntityLayer.Concrete.Guide>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-2">
+            <h2 class="title">Haqqımızda</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="/Default/Index/">Ana səhifə</a></li>
+                <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Haqqımızda </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<!-- /about-6-->
+<section class="w3l-cta4 py-5">
+    <div class="container py-lg-5">
+        <div class="ab-section text-center">
+            <h6 class="sub-title">Haqqımızda</h6>
+            <h3 class="hny-title">Bütün Dünyada Xatirələr Qalmaq üçün Səyahət edin.</h3>
+            <p class="py-3 mb-3">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum labore sed, veniam nisi sunt laboriosam ducimus, odio
+                aspernatur fugiat minima blanditiis dignissimos.
+            </p>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-9 mx-auto">
+                <img src="~/Travel-Templates/assets/images/banner3.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //about-6-->
+<!-- /content-6-->
+@await Component.InvokeAsync("AboutList")
+
+<!-- team -->
+<section class="w3l-team" id="team">
+    <div class="team-block py-5">
+        <div class="container py-lg-5">
+            <div class="title-content text-center mb-lg-3 mb-4">
+                <h6 class="sub-title">Bizim komanda</h6>
+                <h3 class="hny-title">
+                    Bələdçilərimizlə tanış olun
+                </h3>
+            </div>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-6 mt-lg-5 mt-4">
+                        <div class="box16">
+                            <a href="#url"><img src="@item.Image" alt="" class="img-fluid" /></a>
+                            <div class="box-content">
+                                <h3 class="title"><a href="#url">@item.Name</a></h3>
+                                <span class="post">@item.Description</span>
+                                <ul class="social">
+                                    <li>
+                                        <a href="@item.InstagremURL" class="facebook">
+                                            <span class="fa fa-instagram"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@item.TwitterURL" class="twitter">
+                                            <span class="fa fa-twitter"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
